@@ -1,9 +1,9 @@
 <?php
 // Database configuration
 define('DB_HOST', 'localhost');
-define('DB_USERNAME', 'admin');
-define('DB_PASSWORD', '1justgotrooted');
-define('DB_NAME', 'pyramid');
+define('DB_USERNAME', '');
+define('DB_PASSWORD', '');
+define('DB_NAME', '');
 
 // Create connection
 function getConnection() {
