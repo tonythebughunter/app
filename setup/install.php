@@ -14,8 +14,8 @@
 // Database configuration
 define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'admin');
-define('DB_PASSWORD', '1justgotrooted');
-define('DB_NAME','pyramid');
+define('DB_PASSWORD', '');
+define('DB_NAME','');
 
 // Start output buffering for clean display
 ob_start();
@@ -225,14 +225,14 @@ ob_start();
                                         $adminExists = $stmt->fetchColumn() > 0;
 
                                         if (!$adminExists) {
-                                            // Insert default admin user (password: 1justgotroot)
-                                            $hashedPassword = password_hash('1justgotroot', PASSWORD_DEFAULT);
+                                            // Insert default admin user (password: xxx)
+                                            $hashedPassword = password_hash('xxx', PASSWORD_DEFAULT);
                                             $stmt = $conn->prepare("INSERT INTO users (name, email, phone, password, role) VALUES (?, ?, ?, ?, ?)");
                                             $stmt->execute(['Admin User', 'admin@sharesmarket.com', '254700000000', $hashedPassword, 'admin']);
                                             
                                             $steps[] = [
                                                 'title' => 'Default Admin User',
-                                                'message' => 'Admin user created (email: admin@sharesmarket.com, password: 1justgotroot)',
+                                                'message' => 'Admin user created (email: admin@sharesmarket.com, password: xxxx)',
                                                 'status' => 'success'
                                             ];
                                         } else {
@@ -341,7 +341,7 @@ ob_start();
                                 <p class="mb-3">Your P2P Shares Marketplace is now ready to use.</p>
                                 <hr>
                                 <h6>Default Login Credentials:</h6>
-                                <p class="mb-1"><strong>Admin:</strong> admin@sharesmarket.com / 1justgotroot</p>
+                                <p class="mb-1"><strong>Admin:</strong> admin@sharesmarket.com / xxxx</p>
                                 <p class="mb-3"><strong>Test User:</strong> john@example.com / password</p>
                                 <a href="../index.php" class="btn btn-success">Go to Application</a>
                             </div>
